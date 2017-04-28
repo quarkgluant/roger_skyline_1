@@ -1,0 +1,2 @@
+# Identifiez la gateway par défaut dans la table de routage
+ipconfig getoption en0 router

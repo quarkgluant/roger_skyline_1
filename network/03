@@ -1,0 +1,2 @@
+# Identifiez l’adresse MAC de la carte Wi-Fi
+ifconfig en1 ether |  grep -o -E '([[:xdigit:]]{2}:){5}[[:xdigit:]]{2}'

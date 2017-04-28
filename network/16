@@ -1,0 +1,4 @@
+rajouter dans hosts
+62.210.207.183     intra.42.fr
+# ou
+# sudo route -n add intra.42.fr 62.210.207.183

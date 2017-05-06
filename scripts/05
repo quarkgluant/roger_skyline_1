@@ -1,0 +1,8 @@
+#!/bin/bash
+# Réaliser un script qui affiche 42.
+echo '   _____  ________  '
+echo '  /  |  | \_____  \ '
+echo ' /   |  |_ /  ____/ '
+echo '/    ^   //       \ '
+echo '\____   | \_______ \'
+echo '     |__|         \/'

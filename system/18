@@ -1,0 +1,6 @@
+# Avec la commande précédente, autorisez uniquement les IPs provenant de 10.0.0.0/8
+# à se connecter sur votre système
+# iptables -A (chain) -p (protocole) --dport (port) -j (décision)
+# iptables -A INPUT -i eth0 -s 192.168.0.0/24 -d 192.168.0.22 -p tcp\
+ # --dport 631 -m state --state NEW,RELATED,ESTABLISHED -j ACCEPT
+iptables -A INPUT -s 10.0.0.0/8 -i eth0 -j ACCEPT

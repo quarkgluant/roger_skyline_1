@@ -1,0 +1,2 @@
+# Déterminez la taille exacte de chaque dossier de /var
+sudo du -h --max-depth=1 /var

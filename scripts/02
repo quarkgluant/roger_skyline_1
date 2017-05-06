@@ -1,0 +1,9 @@
+#!/bin/bash
+# Réaliser un script qui met à jour l’ensemble des sources de package, puis de vos packages
+# et qui log l’ensemble dans un fichier nommé /var/log/update_script.log.
+# Créez une tache plannifiée pour ce script une fois par semaine à 4h00 du matin.
+sudo su
+apt-get update
+apt-get upgrade -y >> /var/log/update_script.log 2>&1
+crontab -e 
+0 04 * * 1 02

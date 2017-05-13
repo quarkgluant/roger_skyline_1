@@ -3,4 +3,4 @@
 # et envoie un mail à root si celui-ci a été modifié. Créez une tache plannifiée pour
 # script tous les jours à minuit.
 
-md5sum /etc/crontab > 
+echo 'md5sum /etc/crontab > watch_crontab"

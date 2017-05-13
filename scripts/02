@@ -2,8 +2,18 @@
 # Réaliser un script qui met à jour l’ensemble des sources de package, puis de vos packages
 # et qui log l’ensemble dans un fichier nommé /var/log/update_script.log.
 # Créez une tache plannifiée pour ce script une fois par semaine à 4h00 du matin.
-sudo su
-apt-get update
-apt-get upgrade -y >> /var/log/update_script.log 2>&1
-crontab -e 
-0 04 * * 1 02
+echo '#!/bin/bash' > mon_script.sh
+# echo 'sudo su ' >> mon_script.sh
+echo 'apt-get update ' >> mon_script.sh
+echo 'apt-get upgrade -y >> /var/log/update_script.log 2>&1 ' >> mon_script.sh
+# Donner le fichier à root 
+sudo chown root mon_script.sh
+# mettre le bit setuid 
+sudo chmod +s mon_script.sh
+
+# crontab -e 
+# 0 04 * * 1 02 bash mon_script.sh
+crontab -l > $tmpfile # export de la crontab
+echo '0 04 * * 1 02 bash mon_script.sh' >> $tmpfile
+crontab $tmpfile # import de la crontab
+rm $tmpfile # le fichier temporaire ne sert plus à rien

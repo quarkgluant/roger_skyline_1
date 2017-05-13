@@ -10,7 +10,7 @@ echo 'apt-get upgrade -y >> /var/log/update_script.log 2>&1 ' >> mon_script.sh
 sudo chown root mon_script.sh
 # mettre le bit setuid 
 sudo chmod +s mon_script.sh
-
+# exec su -c $0 root
 # crontab -e 
 # 0 04 * * 1 02 bash mon_script.sh
 crontab -l > $tmpfile # export de la crontab

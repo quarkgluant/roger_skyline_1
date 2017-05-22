@@ -4,4 +4,16 @@
 # script tous les jours à minuit.
 
 echo '#!/bin/bash' > mon_script.sh
-echo 'md5sum /etc/crontab > watch_crontab' > mon_script.sh
+echo 'md5sum /etc/crontab > watch_crontab' >> mon_script.sh
+echo 'if [ md5sum /etc/crontab != watch_crontab ]' >> mon_script.sh
+echo 'then' >> mon_script.sh
+echo 'mail root -s "crontab modifié" root < /etc/crontab' >> mon_script.sh
+echo 'fi' >> mon_script.sh
+# Donner le fichier à root 
+sudo chown root mon_script.sh
+# mettre le bit setuid 
+sudo chmod +s mon_script.sh
+crontab -l > $tmpfile # export de la crontab
+echo '0 0 * * * bash mon_script.sh' >> $tmpfile
+crontab $tmpfile # import de la crontab
+rm $tmpfile # le fichier temporaire ne sert plus à rien

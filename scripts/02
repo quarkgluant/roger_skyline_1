@@ -14,6 +14,6 @@ sudo chmod +s mon_script.sh
 # crontab -e 
 # 0 04 * * 1 02 bash mon_script.sh
 crontab -l > $tmpfile # export de la crontab
-echo '0 04 * * 1 02 bash mon_script.sh' >> $tmpfile
+echo '0 04 * * 1 bash mon_script.sh' >> $tmpfile
 crontab $tmpfile # import de la crontab
 rm $tmpfile # le fichier temporaire ne sert plus à rien

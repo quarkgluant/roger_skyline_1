@@ -14,6 +14,7 @@ sudo chown root mon_script.sh
 # mettre le bit setuid 
 sudo chmod +s mon_script.sh
 crontab -l > tmpfile # export de la crontab
-echo '0 0 * * * bash mon_script.sh' >> tmpfile
+echo '0 0 * * * bash /home/pcadiot/Téléchargements/scripts/mon_script.sh' >> tmpfile
 crontab tmpfile # import de la crontab
-rm tmpfile # le fichier temporaire ne sert plus à rien
+rm -f tmpfile # le fichier temporaire ne sert plus à rien
+exit

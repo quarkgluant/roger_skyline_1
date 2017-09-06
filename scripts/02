@@ -4,16 +4,12 @@
 # Créez une tache plannifiée pour ce script une fois par semaine à 4h00 du matin.
 echo '#!/bin/bash' > mon_script.sh
 # echo 'sudo su ' >> mon_script.sh
-echo 'apt-get update ' >> mon_script.sh
+echo 'apt-get update > /var/log/update_script.log 2>&1 ' >> mon_script.sh
 echo 'apt-get upgrade -y >> /var/log/update_script.log 2>&1 ' >> mon_script.sh
-# Donner le fichier à root 
-sudo chown root mon_script.sh
-# mettre le bit setuid 
-sudo chmod +s mon_script.sh
-# exec su -c $0 root
-# crontab -e 
-# 0 04 * * 1 02 bash mon_script.sh
-crontab -l > tmpfile # export de la crontab
-echo '0 04 * * 1 bash /home/pcadiot/Téléchargements/scripts/mon_script.sh' >> tmpfile
-crontab tmpfile # import de la crontab
-rm -f tmpfile # le fichier temporaire ne sert plus à rien
+chmod +x mon_script.sh
+
+# crontab -l > tmpfile # export de la crontab
+# echo '0 04 * * 1 bash /home/pcadiot/Téléchargements/scripts/mon_script.sh' >> tmpfile
+# crontab tmpfile # import de la crontab
+# rm -f tmpfile # le fichier temporaire ne sert plus à rien
+crontab < <(crontab -l ; echo '0 04 * * 1 bash /home/pcadiot/Téléchargements/scripts/mon_script.sh')

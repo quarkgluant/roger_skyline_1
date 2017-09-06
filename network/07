@@ -1,4 +1,5 @@
 # Interrogez un serveur DNS externe sur le nom de domaine slash16.org (ex :
 # google 8.8.8.8)
 nslookup slash16.org 8.8.8.8
-dig @8.8.8.8 slash16.org
+# ou
+# dig @8.8.8.8 slash16.org

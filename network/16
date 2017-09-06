@@ -1,4 +1,4 @@
-rajouter dans hosts
+rajouter dans hosts en étant su (avec sudo)
 62.210.207.183     intra.42.fr
 avec cat "62.210.207.183     intra.42.fr" >> /etc/host
 # ou

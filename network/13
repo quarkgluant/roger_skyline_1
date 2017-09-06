@@ -1,2 +1,2 @@
 # Déterminez le type du serveur
-la commande nslookup 10.51.1.253 nous dit que c'est un seveur dhcp
+la commande nslookup 10.51.1.253 nous dit que c'est un serveur dhcp

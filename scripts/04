@@ -5,7 +5,7 @@
 
 echo '#!/bin/bash' > mon_script.sh
 echo 'md5sum /etc/crontab > watch_crontab.md5' >> mon_script.sh
-echo 'if [ md5sum -c --status --quiet watch_crontab.md5]' >> mon_script.sh
+echo 'if [ $(md5sum -c --status --quiet watch_crontab.md5) ]' >> mon_script.sh
 echo 'then' >> mon_script.sh
 echo '	  mail root -s "crontab modifié" root < /etc/crontab' >> mon_script.sh
 echo 'fi' >> mon_script.sh

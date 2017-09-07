@@ -1,2 +1,1 @@
-# Trouvez la commande qui donne la liste des règles de pare-feu
 sudo iptables -L

@@ -1,2 +1,1 @@
-# Avec la commande précédente, interdisez le reste
-iptables -P INPUT DROP
+sudo iptables -P INPUT DROP

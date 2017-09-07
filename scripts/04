@@ -3,16 +3,16 @@
 # et envoie un mail à root si celui-ci a été modifié. Créez une tache plannifiée pour
 # script tous les jours à minuit.
 
-echo '#!/bin/bash' > mon_script.sh
-echo 'md5sum /etc/crontab > watch_crontab.md5' >> mon_script.sh
-echo 'if [ $(md5sum -c --status --quiet watch_crontab.md5) ]' >> mon_script.sh
-echo 'then' >> mon_script.sh
-echo '	  mail root -s "crontab modifié" root < /etc/crontab' >> mon_script.sh
-echo 'fi' >> mon_script.sh
+echo '#!/bin/bash' > mon_script_02.sh
+echo 'md5sum /etc/crontab > watch_crontab.md5' >> mon_script_02.sh
+echo 'if [ $(md5sum -c --status --quiet watch_crontab.md5) ]' >> mon_script_02.sh
+echo 'then' >> mon_script_02.sh
+echo '	  mail -s "crontab modifié" root < /etc/crontab' >> mon_script_02.sh
+echo 'fi' >> mon_script_02.sh
 
-chmod +x mon_script.sh
+chmod +x mon_script_02.sh
 
-crontab < <(crontab -l ; echo '0 04 * * 1 bash /home/pcadiot/Téléchargements/scripts/mon_script.sh')
+crontab < <(crontab -l ; echo '0 0 * * * /bin/sh /media/sf_shared_folder/scripts/mon_script_02.sh  2>&1')
 
 # crontab -l > tmpfile # export de la crontab
 # echo '0 0 * * * bash /home/pcadiot/Téléchargements/scripts/mon_script.sh' >> tmpfile

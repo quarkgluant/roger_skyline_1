@@ -1,2 +1,2 @@
-# Identifiez la gateway par défaut dans la table de routage
+netstat -nr | grep default
 ipconfig getoption en0 router

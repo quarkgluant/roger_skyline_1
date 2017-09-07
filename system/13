@@ -1,4 +1,1 @@
-# Trouvez la commande qui permet de trouver les processus en cours d’exécution
-ps -ax
-ps -ef
-top # en temps réel
+top

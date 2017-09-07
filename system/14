@@ -1,3 +1,1 @@
-# Lancez en background la commande tail -f /var/log/syslog
-tail -f /var/log/syslog &
-# ou tail  -f /var/log/syslog puis CTRL-Z et bg
+$(tail -f /var/log/syslog) &

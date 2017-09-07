@@ -1,2 +1,1 @@
-# Identifiez l’adresse IP de l’interface Ethernet
-ipconfig getifaddr en0
+ifconfig en0

@@ -2,13 +2,13 @@
 # Réaliser un script qui met à jour l’ensemble des sources de package, puis de vos packages
 # et qui log l’ensemble dans un fichier nommé /var/log/update_script.log.
 # Créez une tache plannifiée pour ce script une fois par semaine à 4h00 du matin.
-echo '#!/bin/bash' > mon_script.sh
-echo 'apt-get update > /var/log/update_script.log 2>&1 ' >> mon_script.sh
-echo 'apt-get upgrade -y >> /var/log/update_script.log 2>&1 ' >> mon_script.sh
-chmod +x mon_script.sh
+echo '#!/bin/bash' > mon_script_01.sh
+echo 'apt-get update > /var/log/update_script.log 2>&1 ' >> mon_script_01.sh
+echo 'apt-get upgrade -y >> /var/log/update_script.log 2>&1 ' >> mon_script_01.sh
+chmod +x mon_script_01.sh
 
 # crontab -l > tmpfile # export de la crontab
 # echo '0 04 * * 1 bash /home/pcadiot/Téléchargements/scripts/mon_script.sh' >> tmpfile
 # crontab tmpfile # import de la crontab
 # rm -f tmpfile # le fichier temporaire ne sert plus à rien
-crontab < <(crontab -l ; echo '0 04 * * 1 bash /home/pcadiot/Téléchargements/scripts/mon_script.sh')
+crontab < <(crontab -l ; echo '0 04 * * 1 /bin/sh /media/sf_shared_folder/scripts/mon_script_01.sh 2>&1')

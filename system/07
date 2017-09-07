@@ -1,4 +1,1 @@
-# Déterminez le PID du service SSHD
-# sudo /etc/init.d/ssh status | grep PID: | cut -d ' ' -f4
 ps -ef | grep sshd
-# pidof sshd

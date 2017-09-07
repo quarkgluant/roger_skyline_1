@@ -1,3 +1,1 @@
-# Trouvez la commande qui permet de tuer le processus de la commande en background
-# jobs pour récupérer le numéro du job puis 
-kill %1 # %1 est le numéro du job 
+kill -9 %1
